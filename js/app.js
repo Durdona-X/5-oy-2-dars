@@ -1,16 +1,28 @@
 const elContainer = document.getElementById("container");
 const elPrev = document.getElementById("prev");
 const elNext = document.getElementById("next");
+const elCarName = document.querySelector(".js-car-name");
+const elCarYear = document.querySelector(".js-car-year");
+const elFormButton = document.getElementById("submitButton");
+const elToastTemplate = document.getElementById("toastTemplate");
+const elToast = document.getElementById("toast");
+const elCarForm = document.getElementById("carAddForm");
+const elCarMaxSpeed = document.querySelector(".js-car-maxSpeed");
+const elHorsePower = document.querySelector(".js-horsePower");
+const elFuelType = document.querySelector(".js-fuelType");
+const elCountry = document.querySelector(".js-country");
+const elAcceleration = document.querySelector(".js-acceleration");
 
 let limit = 3;
 let skip = 0;
 let ytotal = 0;
 
 if (skip === 0) {
+  elPrev.style.display = "none";
 }
 
 loader(true);
-fetch("https://json-api.uz/api/project/fn44-amaliyot/cars?limit=3&skip=6")
+fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
   .then((res) => {
     return res.json();
   })
@@ -93,3 +105,261 @@ elPrev.addEventListener("click", () => {
 elNext.addEventListener("click", () => {
   console.log(2);
 });
+
+elCarForm.addEventListener("submit", (evt) => {
+  const obj = {
+    name: elCarName.value,
+    year: elCarYear.value,
+  };
+
+  if (obj.name.trim() === "") {
+    const clone = elToastTemplate.cloneNode(true).content;
+    clone.querySelector("span").innerText = "Mashina nomini kiriting";
+    elToast.appendChild(clone);
+
+    elCarName.focus();
+
+    setTimeout(() => {
+      document.querySelector(`[role="alert"]`).remove();
+    }, 2000);
+  }
+
+  elCarName.value = "";
+  elCarYear.value = "";
+
+  evt.preventDefault();
+  const formData = new FormData(elCarForm);
+  const result = {};
+
+  formData.forEach((value, key) => {
+    result[key] = value;
+  });
+});
+
+elCarForm.addEventListener("submit", (evt) => {
+  const obj = {
+    name: elCarName.value,
+    year: elCarYear.value,
+  };
+
+  if (obj.name.trim() === "") {
+    const clone = elToastTemplate.cloneNode(true).content;
+    clone.querySelector("span").innerText = "Mashina chiqarilgan yil";
+    elToast.appendChild(clone);
+
+    elCarYear.focus();
+
+    setTimeout(() => {
+      document.querySelector(`[role="alert"]`).remove();
+    }, 3000);
+  }
+
+  elCarName.value = "";
+  elCarYear.value = "";
+
+  evt.preventDefault();
+  const formData = new FormData(elCarForm);
+  const result = {};
+
+  formData.forEach((value, key) => {
+    result[key] = value;
+  });
+});
+
+elCarForm.addEventListener("submit", (evt) => {
+  const obj = {
+    name: elCarName.value,
+    year: elCarYear.value,
+    maxSpeed: elCarMaxSpeed.value,
+  };
+
+  if (obj.name.trim() === "") {
+    const clone = elToastTemplate.cloneNode(true).content;
+    clone.querySelector("span").innerText = "Mashina tezligi";
+    elToast.appendChild(clone);
+
+    elCarMaxSpeed.focus();
+
+    setTimeout(() => {
+      document.querySelector(`[role="alert"]`).remove();
+    }, 3000);
+  }
+
+  elCarName.value = "";
+  elCarYear.value = "";
+  elCarMaxSpeed.value = "";
+
+  evt.preventDefault();
+  const formData = new FormData(elCarForm);
+  const result = {};
+
+  formData.forEach((value, key) => {
+    result[key] = value;
+  });
+});
+
+elCarForm.addEventListener("submit", (evt) => {
+  const obj = {
+    name: elCarName.value,
+    year: elCarYear.value,
+    maxSpeed: elCarMaxSpeed.value,
+    horsePower: elHorsePower.value,
+  };
+
+  if (obj.name.trim() === "") {
+    const clone = elToastTemplate.cloneNode(true).content;
+    clone.querySelector("span").innerText = "Ot kuchi";
+    elToast.appendChild(clone);
+
+    elHorsePower.focus();
+
+    setTimeout(() => {
+      document.querySelector(`[role="alert"]`).remove();
+    }, 3000);
+  }
+
+  elCarName.value = "";
+  elCarYear.value = "";
+  elCarMaxSpeed.value = "";
+  elHorsePower.value = "";
+
+  evt.preventDefault();
+  const formData = new FormData(elCarForm);
+  const result = {};
+
+  formData.forEach((value, key) => {
+    result[key] = value;
+  });
+});
+
+elCarForm.addEventListener("submit", (evt) => {
+  const obj = {
+    name: elCarName.value,
+    year: elCarYear.value,
+    maxSpeed: elCarMaxSpeed.value,
+    horsePower: elHorsePower.value,
+    fuelType: elFuelType.value,
+  };
+
+  if (obj.name.trim() === "") {
+    const clone = elToastTemplate.cloneNode(true).content;
+    clone.querySelector("span").innerText = "Yoqilg'i turi";
+    elToast.appendChild(clone);
+
+    elFuelType.focus();
+
+    setTimeout(() => {
+      document.querySelector(`[role="alert"]`).remove();
+    }, 3000);
+  }
+
+  elCarName.value = "";
+  elCarYear.value = "";
+  elCarMaxSpeed.value = "";
+  elHorsePower.value = "";
+  elFuelType.value = "";
+
+  evt.preventDefault();
+  const formData = new FormData(elCarForm);
+  const result = {};
+
+  formData.forEach((value, key) => {
+    result[key] = value;
+  });
+});
+
+elCarForm.addEventListener("submit", (evt) => {
+  const obj = {
+    name: elCarName.value,
+    year: elCarYear.value,
+    maxSpeed: elCarMaxSpeed.value,
+    horsePower: elHorsePower.value,
+    fuelType: elFuelType.value,
+    country: elCountry.value,
+  };
+
+  if (obj.name.trim() === "") {
+    const clone = elToastTemplate.cloneNode(true).content;
+    clone.querySelector("span").innerText = "Mamlakat";
+    elToast.appendChild(clone);
+
+    elCountry.focus();
+
+    setTimeout(() => {
+      document.querySelector(`[role="alert"]`).remove();
+    }, 3000);
+  }
+
+  elCarName.value = "";
+  elCarYear.value = "";
+  elCarMaxSpeed.value = "";
+  elHorsePower.value = "";
+  elFuelType.value = "";
+  elCountry.value = "";
+
+  evt.preventDefault();
+  const formData = new FormData(elCarForm);
+  const result = {};
+
+  formData.forEach((value, key) => {
+    result[key] = value;
+  });
+});
+
+elCarForm.addEventListener("submit", (evt) => {
+  const obj = {
+    name: elCarName.value,
+    year: elCarYear.value,
+    maxSpeed: elCarMaxSpeed.value,
+    horsePower: elHorsePower.value,
+    fuelType: elFuelType.value,
+    country: elCountry.value,
+    acceleration: elAcceleration.value,
+  };
+
+  if (obj.name.trim() === "") {
+    const clone = elToastTemplate.cloneNode(true).content;
+    clone.querySelector("span").innerText = "Eng baland tezligi";
+    elToast.appendChild(clone);
+
+    elFuelType.focus();
+
+    setTimeout(() => {
+      document.querySelector(`[role="alert"]`).remove();
+    }, 3000);
+  }
+
+  elCarName.value = "";
+  elCarYear.value = "";
+  elCarMaxSpeed.value = "";
+  elHorsePower.value = "";
+  elFuelType.value = "";
+  elCountry.value = "";
+  elAcceleration.value = "";
+
+  // evt.preventDefault();
+  // const formData = new FormData(elCarForm);
+  // const result = {};
+
+  // formData.forEach((value, key) => {
+  //   result[key] = value;
+  // });
+});
+
+function add(data) {
+  fetch("https://json-api.uz/api/project/fn44-amaliyot/cars/", {
+    method: "POSt",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      elCarForm.reset();
+      ui([res], false);
+      document.getElementById("my_modal_3").close();
+    });
+}

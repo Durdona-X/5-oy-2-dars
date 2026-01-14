@@ -1,5 +1,5 @@
 const elTitle = document.querySelector("h2");
 
-const url = new URL(window.location.href).searchParams;
+const searchParams = new URL(window.location.href).searchParams;
 
-elTitle.innerHTML = searchParams.get("id");
+elTitle.innerText = searchParams.get("id");
